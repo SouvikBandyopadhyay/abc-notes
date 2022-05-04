@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+*{
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  font-family: 'Quicksand',sans-serif;
+}
+body{
+  background-color: #87ceeb;
+  background-image: radial-gradient(red,black);
+  color: white;
+}
+a{
+  text-decoration: none;
+}
+.App{
+  padding: 5rem 7rem;
+}
+.App h1{
+  color: rgb(209, 238, 240);
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: 'Quicksand',sans-serif;
+  padding: 0rem 0rem 2rem 0rem;
+}
+
+button{
+  font-size: medium;
+  padding: 0.4rem;
+  border-radius: 15px;
+  opacity: 0.9;
+  font-weight: 600;
+  background-color: white;
+}
+
+.links{
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
+}
+.navbar{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.navbar a{
+  color: white;
+  padding: 1rem 1rem 1.5rem 1rem;
+  font-weight: 700;
+  font-size: larger;
+
+}
+.navbar a:hover{
+  color: #87ceeb;
+}
+
+/* Blogs Preview Styles */
+.scrollable-list{
+  max-height: 30rem;
+  overflow: scroll;
+}
+.scrollable-list::-webkit-scrollbar {
+  display: none;
+}
+.blog-list>.heading{
+  padding: 0rem 0rem 2rem 0rem;
+}
+
+.blog-preview{
+  background-color: #00000035;
+  padding: 1rem;
+  color: white;
+  margin: 5px 0px;
+  align-items: center;
+  
+}
+.blog-preview:hover{
+  box-shadow: 1px 3px 5px white;
+}
+.blog-preview a{
+  width: 100%;
+  text-decoration: none;
+}
+.blog-preview h2{
+  color: white;
+}
+.blog-preview p{
+  color: yellow;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+}
+
+.blog-list>.activate-onseelct{
+  display: flex;
+  justify-content: center;
+}
+.blog-list>.activate-onseelct button{
+  margin: 2rem 1rem;
+}
+.checkbox{
+  height: 2rem;
+  width: 2rem;
+  opacity: 0.9;
+  
+}
+
+/* blog deails page */
+
+.blog-details h2{
+  margin-bottom: 2rem;
+}
+
+.blog-details p{
+  margin-bottom: 2rem;
+}
+
+.blog-details div{
+  font-style: italic;
+}
+
+/* Create style */
+.create{
+  max-width: 30rem;  
+  
+  margin:auto;
+  display: flex;
+  flex-direction: column;
+}
+.create h2{
+  align-self: center;
+}
+.create form{
+  display: flex;
+  flex-direction: column;
+
+}
+.create label{
+  padding: 1rem 0rem;
+}
+.create input, .create textarea, .create select{
+  padding: 0.5rem;
+}
+.create button{
+  padding: 0.5rem;
+  margin: 1rem;
+  width: fit-content;
+  align-self: center;
+}
+
+/* credits styles */
+
+.credits{
+  padding: 5rem 2rem 0rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: small;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.flex{
+  display: flex;
+}
+.row{
+  flex-direction: row;
+}
+.col{
+  flex-direction: column;
+}
+.float-left{
+  float: left;
+  margin-left: auto;
+}
+.align-center{
+  align-items: center;
+}
+
+@media screen and (max-width: 600px){
+  .App{
+    padding: 1rem;
+  }
+  .App h1{
+    font-size: 2rem;
+    padding: 0px;
+  }
+  .links{
+    margin: auto;
+  }
+  
+}
+
+
+@media screen and (max-height: 780px){
+  .scrollable-list{
+    max-height: 20rem;
+  }
+}
+@media screen and (min-height: 1000px){
+  .scrollable-list{
+    max-height: 42rem;
+  }
+}
+@media screen and (min-height: 1500px){
+  .scrollable-list{
+    max-height: 52rem;
+  }
+}
