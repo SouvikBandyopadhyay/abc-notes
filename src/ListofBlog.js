@@ -59,7 +59,7 @@ const ListofBlog = ({blogs,setdata,title,from}) => {
             </div>
             <div className='scrollable-list'>
             {blogs.length===0 && <p>List is Empty</p> }
-            {blogs.map((blog) => (
+            {blogs.slice(0).reverse().map((blog) => (
                 <div className="blog-preview flex row single_blog_container'" key={blog.id}>
                     <Link to={'/abc-notes/note/'+blog.id} >
                         <div>
