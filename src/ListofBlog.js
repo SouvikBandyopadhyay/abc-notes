@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react';
 import { useHistory } from "react-router";
 
-const ListofBlog = ({blogs,title,from}) => {
+const ListofBlog = ({blogs,setdata,title,from}) => {
     const history= useHistory();
     const [select,setSelect]=useState(false);
     const [svalues,setSValues]=useState([]);
@@ -16,34 +16,40 @@ const ListofBlog = ({blogs,title,from}) => {
         setSelect(false);
     }
     const deleteSelected=()=>{
-        var data=localStorage.getItem("abc-notes")?JSON.parse(localStorage.getItem("abc-notes")):[];
-        var newdata=data.filter((ele)=>{
-            return !(svalues.includes(ele.id) && ele.visible===false)
+        var newdata=localStorage.getItem("abc-notes")?JSON.parse(localStorage.getItem("abc-notes")):[];
+        newdata=newdata.filter((ele)=>{
+            return !(svalues.includes(ele.id) && ele.visible===false);
         })
-        newdata=data.map((ele)=>{
+        newdata.map((ele)=>{
             if(svalues.includes(ele.id)){
                 if(ele.visible===true){
                     ele.visible=false;
                 }
             }
         })
-        setSValues([]);
-        console.log(data);
-        localStorage.setItem("abc-notes", JSON.stringify(data));
-        window.location.reload(false);
+        localStorage.setItem("abc-notes", JSON.stringify(newdata));
+        changeState();
+        
     }
     const restoreSelected=()=>{
-        var data=localStorage.getItem("abc-notes")?JSON.parse(localStorage.getItem("abc-notes")):[];
-        var newdata=data.map((ele)=>{
+        var newdata=localStorage.getItem("abc-notes")?JSON.parse(localStorage.getItem("abc-notes")):[];
+        newdata.map((ele)=>{
             if(svalues.includes(ele.id)){
                 if(ele.visible===false){
                     ele.visible=true;
                 }
             }
         })
+        localStorage.setItem("abc-notes", JSON.stringify(newdata));
+        changeState();
+    }
+    const changeState=()=>{
+        var newdata=blogs.filter((ele)=>{
+            return !svalues.includes(ele.id);
+        });
+        setdata(newdata);
         setSValues([]);
-        localStorage.setItem("abc-notes", JSON.stringify(data));
-        window.location.reload(false);
+        setSelect(false);
     }
     return ( 
         <div className="blog-list">
